@@ -1,0 +1,34 @@
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class EjemploRutas {
+
+    public static void main(String[] args) {
+
+        // Definir las 4 rutas
+        Path ruta1 = Paths.get("/home/usuario/documentos");
+        Path ruta2 = Paths.get("/home/usuario/descargas");
+        Path ruta3 = Paths.get("/tmp");
+        Path ruta4 = Paths.get("archivo.txt");
+
+        // Combinar rutas (ejemplo: ruta1 y ruta2)
+        Path rutaCombinada = ruta1.resolve(ruta2);
+        System.out.println("Ruta combinada: " + rutaCombinada); // Salida: /home/usuario/descargas
+
+        // Obtener el nombre del archivo de una ruta (ejemplo: ruta4)
+        Path nombreArchivo = ruta4.getFileName();
+        System.out.println("Nombre del archivo: " + nombreArchivo); // Salida: archivo.txt
+
+        // Obtener el nombre del directorio de una ruta (ejemplo: ruta1)
+        Path nombreDirectorio = ruta1.getParent();
+        System.out.println("Nombre del directorio: " + nombreDirectorio); // Salida: /home/usuario
+
+        // Crear una ruta relativa a partir de una ruta base (ejemplo: ruta3 y ruta4)
+        Path rutaRelativa = ruta3.resolve(ruta4);
+        System.out.println("Ruta relativa: " + rutaRelativa); // Salida: /tmp/archivo.txt
+
+        // Obtener la ruta absoluta de una ruta (ejemplo: ruta1)
+        Path rutaAbsoluta = ruta1.toAbsolutePath();
+        System.out.println("Ruta absoluta: " + rutaAbsoluta);
+    }
+}
